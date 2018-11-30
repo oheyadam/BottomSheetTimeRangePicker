@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">BottomSheetPickers</string>
+    <string name="app_name">BottomSheetTimeRangePicker</string>
     <string name="action_done">Done</string>
 </resources>

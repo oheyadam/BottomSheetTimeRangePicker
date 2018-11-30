@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.time_range_picker.*
 
 @Suppress("DEPRECATION") // We deal with it below
-class TimeRangePicker : BottomSheetDialogFragment() {
+class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
     private lateinit var listener: OnTimeRangeSelectedListener
     private lateinit var startTimeIndicator: String
     private lateinit var endTimeIndicator: String
@@ -119,7 +119,7 @@ class TimeRangePicker : BottomSheetDialogFragment() {
 
 
         /**
-         * Returns a TimeRangePicker that's displayed as a BottomSheetDialog
+         * Returns a BottomSheetTimeRangePicker instance that's displayed as a BottomSheetDialog
          *
          * @param onTimeRangeSelectedListener the listener that's triggered when the user selects a time range.
          * @param is24HourMode tells the TimePickers whether they should be in 12-hour or 24-hour mode.
@@ -127,7 +127,8 @@ class TimeRangePicker : BottomSheetDialogFragment() {
          * you can change it in cases like internationalization.
          * @param endTimeTabIndicator the title of the end time tab. This has a default value of "End time", but
          * you can change it in cases like internationalization.
-         * @return a TimeRangePicker instance with the necessary callback and correct mode.
+         *
+         * @return a BottomSheetTimeRangePicker instance with the necessary callback and correct mode.
          * @see BottomSheetDialogFragment
          */
         fun newInstance(
@@ -135,8 +136,8 @@ class TimeRangePicker : BottomSheetDialogFragment() {
             is24HourMode: Boolean,
             startTimeTabIndicator: String = defaultStartTimeTabIndicator,
             endTimeTabIndicator: String = defaultEndTimeTabIndicator
-        ): TimeRangePicker {
-            val timeRangePicker = TimeRangePicker()
+        ): BottomSheetTimeRangePicker {
+            val timeRangePicker = BottomSheetTimeRangePicker()
             timeRangePicker.listener = onTimeRangeSelectedListener
             timeRangePicker.is24HourMode = is24HourMode
             timeRangePicker.startTimeIndicator = startTimeTabIndicator
