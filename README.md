@@ -7,7 +7,7 @@ BottomSheetPickers is a tiny Android library for adding Date and Time Pickers as
 
 ## Installation
 
-Add the following depdedency to your build.gradle file.
+Add the following dependency to your build.gradle file.
 
       implementation 'me.adawoud:bottomsheetpickers:latest-version'
 
