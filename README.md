@@ -1,3 +1,6 @@
+[ ![Download](https://api.bintray.com/packages/adawoud/BottomSheetPickers/me.adawoud.bottomsheetpickers/images/download.svg) ](https://bintray.com/adawoud/BottomSheetPickers/me.adawoud.bottomsheetpickers/_latestVersion)
+
+
 # BottomSheetPickers
 
 BottomSheetPickers is a tiny Android library for adding Date and Time Pickers as Modal BottomSheetDialogs with From and To ranges.
@@ -6,7 +9,7 @@ BottomSheetPickers is a tiny Android library for adding Date and Time Pickers as
 
 Add the following depdedency to your build.gradle file.
 
-      implementation 'me.adawoud:bottomsheetpickers:0.9'
+      implementation 'me.adawoud:bottomsheetpickers:latest-version'
 
 ## License
 
