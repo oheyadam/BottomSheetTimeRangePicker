@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.time_range_picker.*
+import me.adawoud.bottomsheettimerangepicker.R
 
 @Suppress("DEPRECATION") // We deal with it below
 class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
@@ -116,6 +117,7 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
         // Default values for Tab titles
         private const val defaultStartTimeTabIndicator = "Start time"
         private const val defaultEndTimeTabIndicator = "End time"
+        private const val defaultDoneButtonText = "Done"
 
 
         /**
@@ -127,6 +129,8 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
          * you can change it in cases like internationalization.
          * @param endTimeTabIndicator the title of the end time tab. This has a default value of "End time", but
          * you can change it in cases like internationalization.
+         * @param doneButtonText the text of the Done Button. Default value is done. You can change this in case
+         * of internationalization.
          *
          * @return a BottomSheetTimeRangePicker instance with the necessary callback and correct mode.
          * @see BottomSheetDialogFragment
@@ -135,14 +139,15 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
             onTimeRangeSelectedListener: OnTimeRangeSelectedListener,
             is24HourMode: Boolean,
             startTimeTabIndicator: String = defaultStartTimeTabIndicator,
-            endTimeTabIndicator: String = defaultEndTimeTabIndicator
+            endTimeTabIndicator: String = defaultEndTimeTabIndicator,
+            doneButtonText: String = defaultDoneButtonText
         ): BottomSheetTimeRangePicker {
             val timeRangePicker = BottomSheetTimeRangePicker()
             timeRangePicker.listener = onTimeRangeSelectedListener
             timeRangePicker.is24HourMode = is24HourMode
             timeRangePicker.startTimeIndicator = startTimeTabIndicator
             timeRangePicker.endTimeIndicator = endTimeTabIndicator
-
+            timeRangePicker.btnSetTimeRange.text = doneButtonText
             return timeRangePicker
         }
     }
