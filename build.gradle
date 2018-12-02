@@ -17,7 +17,7 @@ allprojects {
         google()
         jcenter()
         maven {
-            url "https://dl.bintray.com/adawoud/BottomSheetRangePickers/"
+            url "https://dl.bintray.com/adawoud/BottomSheetTimeRangePicker/"
         }
     }
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="me.adawoud.bottomsheettimepicker.MainActivity">
+
+    <Button
+        android:id="@+id/btnTimeRangePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_default"
+        android:text="@string/time_range_picker" />
+
+    <TextView
+        android:id="@+id/tvTimeRange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_default"
+        android:gravity="center"
+        android:text="@string/time_range"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/spacing_default"
+        android:background="@color/grey" />
+
+</LinearLayout>
