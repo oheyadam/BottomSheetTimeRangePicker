@@ -9,7 +9,7 @@ The library is inspired by Titto Jose's [TimeRangePicker](https://github.com/tit
 
 ## Screenshots
 
-<img src="https://raw.githubusercontent.com/adawoud/BottomSheetTimeRangePicker/master/art/bottomsheetpicker.png" width="400px" />
+<img src="https://raw.githubusercontent.com/adawoud/BottomSheetTimeRangePicker/master/art/bottomsheetpicker.png" width="300px" />
 
 ## Installation
 
