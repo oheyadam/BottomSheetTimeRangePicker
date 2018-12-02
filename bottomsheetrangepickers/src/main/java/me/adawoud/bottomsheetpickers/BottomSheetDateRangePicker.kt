@@ -10,8 +10,6 @@ import me.adawoud.BottomSheetRangePickers.R
 
 class BottomSheetDateRangePicker : BottomSheetDialogFragment() {
     private lateinit var listener: OnDateRangeSelectedListener
-    private lateinit var startDateIndicator: String
-    private lateinit var endDateIndicator: String
     private var startDayOfMonth = 0
     private var startMonth = 0
     private var startYear = 0
@@ -44,10 +42,10 @@ class BottomSheetDateRangePicker : BottomSheetDialogFragment() {
         tabHost.setup()
         val tabSpec1 = tabHost.newTabSpec(TAG_START_DATE)
         tabSpec1.setContent(R.id.startDatePicker)
-        tabSpec1.setIndicator(startDateIndicator)
+        tabSpec1.setIndicator(getString(R.string.start_date))
         val tabSpec2 = tabHost.newTabSpec(TAG_END_DATE)
         tabSpec2.setContent(R.id.endDatePicker)
-        tabSpec2.setIndicator(endDateIndicator)
+        tabSpec2.setIndicator(getString(R.string.end_date))
         tabHost.addTab(tabSpec1)
         tabHost.addTab(tabSpec2)
     }
@@ -94,34 +92,10 @@ class BottomSheetDateRangePicker : BottomSheetDialogFragment() {
         outState.putInt(KEY_END_YEAR, endYear)
     }
 
-    /**
-     * Sets the minimal date supported by this {@link DatePicker} in
-     * milliseconds since January 1, 1970 00:00:00 in
-     * {@link TimeZone#getDefault()} time zone.
-     *
-     * @param minDate The minimal supported date.
-     */
-    internal fun setMinDate(minDate: Long) {
-        startDatePicker.minDate = minDate
-        endDatePicker.minDate = minDate
-    }
-
-    /**
-     * Sets the maximal date supported by this {@link DatePicker} in
-     * milliseconds since January 1, 1970 00:00:00 in
-     * {@link TimeZone#getDefault()} time zone.
-     *
-     * @param maxDate The maximal supported date.
-     */
-    internal fun setMaxDate(maxDate: Long) {
-        startDatePicker.maxDate = maxDate
-        endDatePicker.maxDate = maxDate
-    }
-
     interface OnDateRangeSelectedListener {
 
         fun onDateRangeSelected(
-            startDayOfMonth: Int, startMont: Int, startYear: Int,
+            startDayOfMonth: Int, startMonth: Int, startYear: Int,
             endDayOfMonth: Int, endMonth: Int, endYear: Int
         )
     }
@@ -137,38 +111,22 @@ class BottomSheetDateRangePicker : BottomSheetDialogFragment() {
         // Tags for the Tabs
         private const val TAG_START_DATE = "TAG_START_DATE"
         private const val TAG_END_DATE = "TAG_END_DATE"
-        // Default values for Tab titles
-        private const val defaultStartDateTabIndicator = "Start date"
-        private const val defaultEndDateTabIndicator = "End date"
-        private const val defaultDoneButtonText = "Done"
-
 
         /**
          * Returns a BottomSheetDateRangePicker instance that's displayed as a BottomSheetDialog
          *
          * @param onDateRangeSelectedListener the listener that's triggered when the user selects a time range.
-         * @param startDateTabIndicator the title of the start date tab. This has a default value of "Start time", but
-         * you can change it in cases like internationalization.
-         * @param endDateTabIndicator the title of the end date tab. This has a default value of "End time", but
-         * you can change it in cases like internationalization.
-         * @param doneButtonText the text of the Done Button. Default value is done. You can change this in case
-         * of internationalization.
          *
          * @return a BottomSheetDateRangePicker instance with the necessary callback and correct mode.
          * @see BottomSheetDialogFragment
          */
         fun newInstance(
-            onDateRangeSelectedListener: OnDateRangeSelectedListener,
-            startDateTabIndicator: String = defaultStartDateTabIndicator,
-            endDateTabIndicator: String = defaultEndDateTabIndicator,
-            doneButtonText: String = defaultDoneButtonText
+            onDateRangeSelectedListener: OnDateRangeSelectedListener
         ): BottomSheetDateRangePicker {
 
             val dateRangePicker = BottomSheetDateRangePicker()
             dateRangePicker.listener = onDateRangeSelectedListener
-            dateRangePicker.startDateIndicator = startDateTabIndicator
-            dateRangePicker.endDateIndicator = endDateTabIndicator
-            dateRangePicker.btnSetDateRange.text = doneButtonText
+
             return dateRangePicker
         }
     }

@@ -12,8 +12,6 @@ import me.adawoud.BottomSheetRangePickers.R
 @Suppress("DEPRECATION") // We deal with it below
 class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
     private lateinit var listener: OnTimeRangeSelectedListener
-    private lateinit var startTimeIndicator: String
-    private lateinit var endTimeIndicator: String
     private var is24HourMode = false
     private var startHour = 0
     private var startMinute = 0
@@ -53,10 +51,10 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
         tabHost.setup()
         val tabSpec1 = tabHost.newTabSpec(TAG_START_TIME)
         tabSpec1.setContent(R.id.startTimePicker)
-        tabSpec1.setIndicator(startTimeIndicator)
+        tabSpec1.setIndicator(getString(R.string.start_time))
         val tabSpec2 = tabHost.newTabSpec(TAG_END_TIME)
         tabSpec2.setContent(R.id.endTimePicker)
-        tabSpec2.setIndicator(endTimeIndicator)
+        tabSpec2.setIndicator(getString(R.string.end_time))
         tabHost.addTab(tabSpec1)
         tabHost.addTab(tabSpec2)
     }
@@ -105,18 +103,6 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
         outState.putInt(KEY_END_MINUTE, endMinute)
     }
 
-    /**
-     * Sets whether this TimePicker displays time in 24-hour mode or 12-hour mode
-     * with an AM/PM picker.
-     *
-     * @param active {@code true} to display in 24-hour mode,
-     *               {@code false} for 12-hour mode with AM/PM
-     */
-    internal fun set24HourMode(active: Boolean) {
-        startTimePicker.setIs24HourView(active)
-        endTimePicker.setIs24HourView(active)
-    }
-
     interface OnTimeRangeSelectedListener {
 
         fun onTimeRangeSelected(startHour: Int, startMinute: Int, endHour: Int, endMinute: Int)
@@ -131,37 +117,24 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
         // Tags for the Tabs
         private const val TAG_START_TIME = "TAG_START_TIME"
         private const val TAG_END_TIME = "TAG_END_TIME"
-        // Default values for Tab titles
-        private const val defaultStartTimeTabIndicator = "Start time"
-        private const val defaultEndTimeTabIndicator = "End time"
-        private const val defaultDoneButtonText = "Done"
-
 
         /**
-         * Returns a BottomSheetTimeRangePicker instance that's displayed as a BottomSheetDialog
+         * Returns a TimeRangePicker that's displayed as a BottomSheetDialog
          *
          * @param onTimeRangeSelectedListener the listener that's triggered when the user selects a time range.
-         * @param startTimeTabIndicator the title of the start time tab. This has a default value of "Start time", but
-         * you can change it in cases like internationalization.
-         * @param endTimeTabIndicator the title of the end time tab. This has a default value of "End time", but
-         * you can change it in cases like internationalization.
-         * @param doneButtonText the text of the Done Button. Default value is done. You can change this in case
-         * of internationalization.
+         * @param is24HourMode tells the TimePickers whether they should be in 12-hour or 24-hour mode.
          *
-         * @return a BottomSheetTimeRangePicker instance with the necessary callback and correct mode.
+         * @return a TimeRangePicker instance with the necessary callback and correct mode.
          * @see BottomSheetDialogFragment
          */
         fun newInstance(
             onTimeRangeSelectedListener: OnTimeRangeSelectedListener,
-            startTimeTabIndicator: String = defaultStartTimeTabIndicator,
-            endTimeTabIndicator: String = defaultEndTimeTabIndicator,
-            doneButtonText: String = defaultDoneButtonText
+            is24HourMode: Boolean
         ): BottomSheetTimeRangePicker {
             val timeRangePicker = BottomSheetTimeRangePicker()
             timeRangePicker.listener = onTimeRangeSelectedListener
-            timeRangePicker.startTimeIndicator = startTimeTabIndicator
-            timeRangePicker.endTimeIndicator = endTimeTabIndicator
-            timeRangePicker.btnSetTimeRange.text = doneButtonText
+            timeRangePicker.is24HourMode = is24HourMode
+
             return timeRangePicker
         }
     }
