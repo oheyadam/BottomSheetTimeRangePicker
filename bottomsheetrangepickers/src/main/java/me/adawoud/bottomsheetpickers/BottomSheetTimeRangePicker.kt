@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.time_range_picker.*
-import me.adawoud.bottomsheettimerangepicker.R
+import me.adawoud.BottomSheetRangePickers.R
 
 @Suppress("DEPRECATION") // We deal with it below
 class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
