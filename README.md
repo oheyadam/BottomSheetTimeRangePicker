@@ -1,4 +1,4 @@
-[ ![Download](https://api.bintray.com/packages/adawoud/BottomSheetPickers/me.adawoud.bottomsheetpickers/images/download.svg) ](https://bintray.com/adawoud/BottomSheetPickers/me.adawoud.bottomsheetpickers/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/adawoud/BottomSheetRangePickers/com.adawoud.bottomsheetrangepickers/images/download.svg) ](https://bintray.com/adawoud/BottomSheetRangePickers/com.adawoud.bottomsheetrangepickers/_latestVersion)
 
 
 # BottomSheetPickers
@@ -7,9 +7,19 @@ BottomSheetPickers is a tiny Android library for adding Date and Time Pickers as
 
 ## Installation
 
-Add the following dependency to your build.gradle file.
+Add the following to your project build.gralde file
+      
+      allprojects {
+            repositories {
+                  maven {
+                        url "https://dl.bintray.com/adawoud/BottomSheetRangePickers/"
+                  }
+      }
+}
 
-      implementation 'me.adawoud:bottomsheetpickers:latest-version'
+Then add this dependency to your app build.gradle file.
+
+      implementation 'com.adawoud:bottomsheetrangepickers:latest-version'
 
 ## License
 
