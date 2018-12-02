@@ -2,4 +2,8 @@
     <string name="app_name">BottomSheetPickers</string>
     <string name="action_settings">Settings</string>
     <string name="time_range_picker">Time range picker</string>
+    <string name="time_range">Time range</string>
+    <string name="date_range">Date range</string>
+    <string name="date_range_picker">Date range picker</string>
+    <string name="chosen_time_range">%1$d:%2$d - %3$d:%4$d</string>
 </resources>

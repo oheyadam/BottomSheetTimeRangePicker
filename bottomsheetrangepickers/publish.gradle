@@ -33,7 +33,7 @@ publishing {
 
 bintray {
     user = project.hasProperty('user') ?: System.getenv('BINTRAY_USER')
-    key = project.hasProperty('key') ?: System.getenv('BINTRAY_API_KEY')
+    key = project.hasProperty('apiKey') ?: System.getenv('BINTRAY_API_KEY')
     publications = ['Production']
     configurations = ['archives']
     // Default: false. Whether to run this as dry-run, without deploying
