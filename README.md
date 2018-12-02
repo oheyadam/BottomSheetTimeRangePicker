@@ -1,11 +1,15 @@
 [ ![Download](https://api.bintray.com/packages/adawoud/BottomSheetTimeRangePicker/com.adawoud.bottomsheettimerangepicker/images/download.svg) ](https://bintray.com/adawoud/BottomSheetTimeRangePicker/com.adawoud.bottomsheettimerangepicker/_latestVersion)
-
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 # BottomSheetPickers
 
 BottomSheetPickers is a tiny Android library for adding Date and Time Pickers as Modal BottomSheetDialogs with From and To ranges. 
 
 The library is inspired by Titto Jose's [TimeRangePicker](https://github.com/tittojose/TimeRangePicker).
+
+## Screenshots
+
+<img src="https://raw.githubusercontent.com/adawoud/BottomSheetTimeRangePicker/master/art/bottomsheetpicker.png" width="400px" />
 
 ## Installation
 
