@@ -1,4 +1,4 @@
-[ ![Download](https://api.bintray.com/packages/adawoud/BottomSheetPickers/me.adawoud.bottomsheetpickers/images/download.svg) ](https://bintray.com/adawoud/BottomSheetPickers/me.adawoud.bottomsheetpickers/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/adawoud/BottomSheetRangePickers/com.adawoud.bottomsheetrangepickers/images/download.svg) ](https://bintray.com/adawoud/BottomSheetRangePickers/com.adawoud.bottomsheetrangepickers/_latestVersion)
 
 
 # BottomSheetPickers
