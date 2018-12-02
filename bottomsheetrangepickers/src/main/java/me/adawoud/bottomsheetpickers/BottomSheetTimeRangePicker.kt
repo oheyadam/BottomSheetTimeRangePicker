@@ -26,7 +26,12 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Restore state on rotation
-        savedInstanceState?.let {
+        savedInstanceState?.let { bundle ->
+            startHour = bundle.getInt(KEY_START_HOUR)
+            startMinute = bundle.getInt(KEY_START_MINUTE)
+            endHour = bundle.getInt(KEY_END_HOUR)
+            endMinute = bundle.getInt(KEY_END_MINUTE)
+
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 startTimePicker.hour = startHour
                 startTimePicker.minute = startMinute
