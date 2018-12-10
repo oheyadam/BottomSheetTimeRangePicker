@@ -1,5 +1,4 @@
-[ ![Download](https://api.bintray.com/packages/adawoud/BottomSheetTimeRangePicker/com.adawoud.bottomsheettimerangepicker/images/download.svg) ](https://bintray.com/adawoud/BottomSheetTimeRangePicker/com.adawoud.bottomsheettimerangepicker/_latestVersion)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![](https://jitpack.io/v/adawoud/BottomSheetTimeRangePicker.svg)](https://jitpack.io/#adawoud/BottomSheetTimeRangePicker)[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 # BottomSheetPickers
 
@@ -13,19 +12,21 @@ The library is inspired by Titto Jose's [TimeRangePicker](https://github.com/tit
 
 ## Installation
 
-Add the following to your project build.gralde file
+Add Jitpack to your project build.gralde file
       
       allprojects {
-            repositories {
-                  maven {
-                        url "https://dl.bintray.com/adawoud/BottomSheetTimeRangePicker/"
-                  }
-      }
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
 }
 
 Then add this dependency to your app build.gradle file.
 
-      implementation 'com.adawoud:bottomsheettimerangepicker:latest-version'
+      dependencies {
+	        implementation 'com.github.adawoud:BottomSheetTimeRangePicker:latest-release'
+	}
 
 ## Usage
 
