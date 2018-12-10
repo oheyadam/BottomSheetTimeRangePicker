@@ -15,9 +15,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven {
-            url "https://dl.bintray.com/adawoud/BottomSheetTimeRangePicker/"
-        }
+        maven { url 'https://jitpack.io' }
     }
 }
 
