@@ -1,7 +1,6 @@
 apply plugin: 'maven-publish'
-apply plugin: 'com.jfrog.bintray'
 
-version '1.0'
+version '1.0.1'
 group 'com.adawoud'
 
 publishing {
@@ -31,9 +30,33 @@ publishing {
     }
 }
 
+// build a jar with source files
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    failOnError false
+    source = android.sourceSets.main.java.sourceFiles
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    classpath += configurations.compile
+}
+
+// build a jar with javadoc
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
 bintray {
-    user = project.hasProperty('user') ?: System.getenv('BINTRAY_USER')
-    key = project.hasProperty('apiKey') ?: System.getenv('BINTRAY_API_KEY')
+    user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
+    key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
     publications = ['Production']
     configurations = ['archives']
     // Default: false. Whether to run this as dry-run, without deploying
@@ -41,7 +64,7 @@ bintray {
     // Default: false. Whether to override version artifacts already published
     override = true
     // Default: false. Whether version should be auto published after an upload
-    publish = true
+    publish = false
     pkg {
         repo = 'BottomSheetTimeRangePicker'
         name = 'com.adawoud.bottomsheettimerangepicker'

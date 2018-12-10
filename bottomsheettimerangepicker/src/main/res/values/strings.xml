@@ -1,8 +1,5 @@
 <resources>
-    <string name="app_name">BottomSheetTimeRangePicker</string>
     <string name="action_done">Done</string>
     <string name="start_time">Start time</string>
     <string name="end_time">End time</string>
-    <string name="start_date">Start date</string>
-    <string name="end_date">End date</string>
 </resources>
