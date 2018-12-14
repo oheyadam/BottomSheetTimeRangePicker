@@ -5,8 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.text.format.DateFormat
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(),
-    BottomSheetTimeRangePicker.OnTimeRangeSelectedListener {
+class MainActivity : AppCompatActivity(), OnTimeRangeSelectedListener {
     private val tagBottomSheetTimeRangePicker = "tagBottomSheetTimeRangePicker"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,6 +13,12 @@ class MainActivity : AppCompatActivity(),
         setContentView(R.layout.activity_main)
         btnTimeRangePicker.setOnClickListener {
             BottomSheetTimeRangePicker
+                .tabLabels(startTabLabel = "Hello", endTabLabel = "World")
+                .doneButtonLabel("Ok")
+                .startTimeInitialHour(2)
+                .startTimeInitialMinute(11)
+                .endTimeInitialHour(10)
+                .endTimeInitialMinute(22)
                 .newInstance(this, DateFormat.is24HourFormat(this))
                 .show(supportFragmentManager, tagBottomSheetTimeRangePicker)
         }
@@ -30,7 +35,6 @@ class MainActivity : AppCompatActivity(),
             endHour < 9 -> endHourString = endHour.toString().prependZero()
             endMinute < 9 -> endMinuteString = endMinute.toString().prependZero()
         }
-
         tvTimeRange.text = getString(
             R.string.chosen_time_range,
             startHourString,
