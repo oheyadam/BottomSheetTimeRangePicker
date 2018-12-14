@@ -24,7 +24,7 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
     private var endMinute = -1
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-        inflater.inflate(R.layout.time_range_picker, container, false)
+        LayoutInflater.from(context).inflate(R.layout.time_range_picker, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
