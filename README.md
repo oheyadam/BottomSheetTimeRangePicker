@@ -31,14 +31,29 @@ Then add this dependency to your app build.gradle file.
 
 ## Usage
 
-Make sure your Activity/Fragment implements `BottomSheetTimeRangePicker.OnTimeRangeSelectedListener`, and then you 
+Make sure your Activity/Fragment implements `OnTimeRangeSelectedListener`, and then you 
 can just do this:
       
-      BottomSheetTimeRangePicker
-            .newInstance(this, DateFormat.is24HourFormat(this))
-            .show(supportFragmentManager, tagBottomSheetTimeRangePicker)
+	BottomSheetTimeRangePicker
+		.newInstance(this, DateFormat.is24HourFormat(this))
+		.show(supportFragmentManager, tagBottomSheetTimeRangePicker)
+		    
 You can see this in action in the sample app [here](https://github.com/adawoud/BottomSheetTimeRangePicker/blob/44ec220fd548256df8182bb5ab0d76f25af03d0c/sample/src/main/java/me/adawoud/bottomsheettimepicker/MainActivity.kt#L16)
 
+## Customization
+      
+You can customize things like the text displayed in the From and To tabs, the text that appears on the positive action button,
+and set intial times for both timepickers
+
+	BottomSheetTimeRangePicker
+		.tabLabels(startTabLabel = "Hello", endTabLabel = "World")
+		.doneButtonLabel("Ok")
+		.startTimeInitialHour(2)
+        	.startTimeInitialMinute(11)
+        	.endTimeInitialHour(10)
+        	.endTimeInitialMinute(22)
+        	.newInstance(this, DateFormat.is24HourFormat(this))
+       	.show(supportFragmentManager, tagBottomSheetTimeRangePicker)
 
 ## License
 
