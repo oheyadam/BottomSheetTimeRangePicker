@@ -22,8 +22,11 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
     private var endHour = -1
     private var endMinute = -1
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-        LayoutInflater.from(context).inflate(R.layout.time_range_picker, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? = LayoutInflater.from(context).inflate(R.layout.time_range_picker, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,7 +36,7 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
             startMinute = bundle.getInt(KEY_START_MINUTE)
             endHour = bundle.getInt(KEY_END_HOUR)
             endMinute = bundle.getInt(KEY_END_MINUTE)
-            doActionBasedOnSdkLevel(
+            setInitialValuesBasedOnSdkLevel(
                 actionIfSdkLevelIsHigherThanOrEqualToM = {
                     startTimePicker.hour = startHour
                     startTimePicker.minute = startMinute
@@ -78,7 +81,7 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
             btnSetTimeRange.setOnClickListener {
                 // Pass these values to the calling Activity/Fragment
                 if (::listener.isInitialized) {
-                    doActionBasedOnSdkLevel(
+                    setInitialValuesBasedOnSdkLevel(
                         actionIfSdkLevelIsHigherThanOrEqualToM = {
                             listener.onTimeRangeSelected(
                                 startTimePicker.hour,
@@ -139,7 +142,7 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
     // Set initial values if the user has changed them before initializing
     private fun initInitialTimeValuesIfAdjusted() {
         doActionIfValueIsNotNegative(startHour, action = {
-            doActionBasedOnSdkLevel(
+            setInitialValuesBasedOnSdkLevel(
                 actionIfSdkLevelIsHigherThanOrEqualToM = {
                     startTimePicker.hour = startHour
                 }
@@ -149,7 +152,7 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
                 })
         })
         doActionIfValueIsNotNegative(startMinute, action = {
-            doActionBasedOnSdkLevel(
+            setInitialValuesBasedOnSdkLevel(
                 actionIfSdkLevelIsHigherThanOrEqualToM = {
                     startTimePicker.minute = startMinute
                 }
@@ -159,7 +162,7 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
                 })
         })
         doActionIfValueIsNotNegative(endHour, action = {
-            doActionBasedOnSdkLevel(
+            setInitialValuesBasedOnSdkLevel(
                 actionIfSdkLevelIsHigherThanOrEqualToM = {
                     endTimePicker.hour = endHour
                 }
@@ -170,7 +173,7 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
 
         })
         doActionIfValueIsNotNegative(endMinute, action = {
-            doActionBasedOnSdkLevel(
+            setInitialValuesBasedOnSdkLevel(
                 actionIfSdkLevelIsHigherThanOrEqualToM = {
                     endTimePicker.hour = endHour
                 }
@@ -223,7 +226,7 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
         }
     }
 
-    private fun doActionBasedOnSdkLevel(
+    private fun setInitialValuesBasedOnSdkLevel(
         actionIfSdkLevelIsHigherThanOrEqualToM: () -> Unit,
         actionIfSdkLevelIsLowerThanM: () -> Unit
     ) {
