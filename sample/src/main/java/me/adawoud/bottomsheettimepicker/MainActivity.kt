@@ -47,4 +47,5 @@ class MainActivity : AppCompatActivity(), OnTimeRangeSelectedListener {
     private fun String.prependZero(): String {
         return "0".plus(this)
     }
+
 }
