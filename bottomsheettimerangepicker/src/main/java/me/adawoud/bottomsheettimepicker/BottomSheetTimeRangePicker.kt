@@ -10,7 +10,6 @@ import android.widget.TabHost
 import kotlinx.android.synthetic.main.time_range_picker.*
 import me.adawoud.bottomsheetpickers.R
 
-
 @Suppress("DEPRECATION") // We deal with it below
 class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
     private lateinit var listener: OnTimeRangeSelectedListener
@@ -173,7 +172,7 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
         doActionIfValueIsNotNegative(endMinute, action = {
             doActionBasedOnSdkLevel(
                 actionIfSdkLevelIsHigherThanOrEqualToM = {
-                    endTimePicker.hour = endMinute
+                    endTimePicker.hour = endHour
                 }
                 ,
                 actionIfSdkLevelIsLowerThanM = {
@@ -350,4 +349,5 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
             return timeRangePicker
         }
     }
+
 }
