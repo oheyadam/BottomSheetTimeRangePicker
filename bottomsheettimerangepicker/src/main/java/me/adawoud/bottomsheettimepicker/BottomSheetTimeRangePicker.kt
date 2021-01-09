@@ -76,15 +76,17 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
             endHour = hourOfDay
             endMinute = minute
         }
-        dialog.setOnShowListener { dialog ->
-            val d = dialog as BottomSheetDialog
-            val bottomSheet =
-                d.findViewById<FrameLayout>(R.id.design_bottom_sheet)
-            val lyout = bottomSheet!!.parent as CoordinatorLayout
-            val behavior: BottomSheetBehavior<*> =
-                BottomSheetBehavior.from(bottomSheet)
-            behavior.peekHeight = bottomSheet!!.height
-            lyout.parent.requestLayout()
+        if (fullScreen){
+            dialog.setOnShowListener { dialog ->
+                val d = dialog as BottomSheetDialog
+                val bottomSheet =
+                    d.findViewById<FrameLayout>(R.id.design_bottom_sheet)
+                val lyout = bottomSheet!!.parent as CoordinatorLayout
+                val behavior: BottomSheetBehavior<*> =
+                    BottomSheetBehavior.from(bottomSheet)
+                behavior.peekHeight = bottomSheet!!.height
+                lyout.parent.requestLayout()
+            }
         }
     }
 
@@ -276,6 +278,7 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
         private const val TAG_START_TIME = "TAG_START_TIME"
         private const val TAG_END_TIME = "TAG_END_TIME"
         private val timeRangePicker = BottomSheetTimeRangePicker()
+        private var fullScreen = false
 
         /**
          * Sets the text of the Start and End time tabs.
@@ -347,6 +350,10 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
         fun endTimeInitialMinute(minute: Int): Companion {
             timeRangePicker.setEndTimeInitialMinute(minute)
             return this
+        }
+
+        fun setFullScreen(){
+            fullScreen=true
         }
 
         /**
