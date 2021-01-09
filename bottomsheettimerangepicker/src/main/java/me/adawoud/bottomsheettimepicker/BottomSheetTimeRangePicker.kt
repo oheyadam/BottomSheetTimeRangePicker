@@ -2,13 +2,18 @@ package me.adawoud.bottomsheettimepicker
 
 import android.os.Build
 import android.os.Bundle
+import android.support.design.widget.BottomSheetBehavior
+import android.support.design.widget.BottomSheetDialog
 import android.support.design.widget.BottomSheetDialogFragment
+import android.support.design.widget.CoordinatorLayout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.TabHost
 import kotlinx.android.synthetic.main.time_range_picker.*
 import me.adawoud.bottomsheetpickers.R
+
 
 @Suppress("DEPRECATION") // We deal with it below
 class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
@@ -70,6 +75,18 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
         endTimePicker.setOnTimeChangedListener { _, hourOfDay, minute ->
             endHour = hourOfDay
             endMinute = minute
+        }
+        if (fullScreen){
+            dialog.setOnShowListener { dialog ->
+                val d = dialog as BottomSheetDialog
+                val bottomSheet =
+                    d.findViewById<FrameLayout>(R.id.design_bottom_sheet)
+                val lyout = bottomSheet!!.parent as CoordinatorLayout
+                val behavior: BottomSheetBehavior<*> =
+                    BottomSheetBehavior.from(bottomSheet)
+                behavior.peekHeight = bottomSheet!!.height
+                lyout.parent.requestLayout()
+            }
         }
     }
 
@@ -261,6 +278,7 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
         private const val TAG_START_TIME = "TAG_START_TIME"
         private const val TAG_END_TIME = "TAG_END_TIME"
         private val timeRangePicker = BottomSheetTimeRangePicker()
+        private var fullScreen = false
 
         /**
          * Sets the text of the Start and End time tabs.
@@ -332,6 +350,10 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
         fun endTimeInitialMinute(minute: Int): Companion {
             timeRangePicker.setEndTimeInitialMinute(minute)
             return this
+        }
+
+        fun setFullScreen(){
+            fullScreen=true
         }
 
         /**
