@@ -1,8 +1,8 @@
 package me.adawoud.bottomsheettimepicker
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.text.format.DateFormat
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), OnTimeRangeSelectedListener {
@@ -24,7 +24,12 @@ class MainActivity : AppCompatActivity(), OnTimeRangeSelectedListener {
         }
     }
 
-    override fun onTimeRangeSelected(startHour: Int, startMinute: Int, endHour: Int, endMinute: Int) {
+    override fun onTimeRangeSelected(
+        startHour: Int,
+        startMinute: Int,
+        endHour: Int,
+        endMinute: Int
+    ) {
         var startHourString = startHour.toString()
         var startMinuteString = startMinute.toString()
         var endHourString = endHour.toString()
@@ -47,5 +52,4 @@ class MainActivity : AppCompatActivity(), OnTimeRangeSelectedListener {
     private fun String.prependZero(): String {
         return "0".plus(this)
     }
-
 }

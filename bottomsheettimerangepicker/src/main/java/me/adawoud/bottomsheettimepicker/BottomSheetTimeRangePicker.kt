@@ -2,11 +2,11 @@ package me.adawoud.bottomsheettimepicker
 
 import android.os.Build
 import android.os.Bundle
-import android.support.design.widget.BottomSheetDialogFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TabHost
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.time_range_picker.*
 import me.adawoud.bottomsheetpickers.R
 
@@ -145,8 +145,7 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
             setInitialValuesBasedOnSdkLevel(
                 actionIfSdkLevelIsHigherThanOrEqualToM = {
                     startTimePicker.hour = startHour
-                }
-                ,
+                },
                 actionIfSdkLevelIsLowerThanM = {
                     startTimePicker.currentHour = startHour
                 })
@@ -155,8 +154,7 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
             setInitialValuesBasedOnSdkLevel(
                 actionIfSdkLevelIsHigherThanOrEqualToM = {
                     startTimePicker.minute = startMinute
-                }
-                ,
+                },
                 actionIfSdkLevelIsLowerThanM = {
                     startTimePicker.currentMinute = startMinute
                 })
@@ -165,8 +163,7 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
             setInitialValuesBasedOnSdkLevel(
                 actionIfSdkLevelIsHigherThanOrEqualToM = {
                     endTimePicker.hour = endHour
-                }
-                ,
+                },
                 actionIfSdkLevelIsLowerThanM = {
                     endTimePicker.currentHour = endHour
                 })
@@ -176,8 +173,7 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
             setInitialValuesBasedOnSdkLevel(
                 actionIfSdkLevelIsHigherThanOrEqualToM = {
                     endTimePicker.hour = endHour
-                }
-                ,
+                },
                 actionIfSdkLevelIsLowerThanM = {
                     endTimePicker.currentHour = endMinute
                 })
@@ -257,6 +253,7 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
         private const val KEY_START_MINUTE = "KEY_START_MINUTE"
         private const val KEY_END_HOUR = "KEY_END_HOUR"
         private const val KEY_END_MINUTE = "KEY_END_MINUTE"
+
         // Tags for the Tabs
         private const val TAG_START_TIME = "TAG_START_TIME"
         private const val TAG_END_TIME = "TAG_END_TIME"
@@ -352,5 +349,4 @@ class BottomSheetTimeRangePicker : BottomSheetDialogFragment() {
             return timeRangePicker
         }
     }
-
 }
